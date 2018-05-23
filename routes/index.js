@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongodb = require('mongodb');
-var mongoDBURI = process.env.MONGODB_URI || 'mongodb:mbalaji:ammu9944@ds133360.mlab.com:33360/heroku_0sb1lwt6';
+var mongoDBURI = process.env.MONGODB_URI || 'mongodb:heroku_0sb1lwt6:ammu9944@ds133360.mlab.com:33360/heroku_0sb1lwt6';
 
 /* GET home page. */
 router.get('/mongodb', function(req, res, next) {
