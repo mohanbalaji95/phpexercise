@@ -1,32 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var mongodb = require('mongodb');
-var mongoDBURI = process.env.MONGODB_URI || 'mongodb:heroku_0sb1lwt6:ammu9944@ds133360.mlab.com:33360/heroku_0sb1lwt6';
+var mongoDBURI = process.env.MONGODB_URI || 'mongodb://mbalaji:ammu9944@ds133360.mlab.com:33360/heroku_0sb1lwt6';
+
+var controllerMongoCollection = require('../controllers/database'); //load controller code dealing with database mongodb and Routes collection
 
 /* GET home page. */
-router.get('/mongodb', function(req, res, next) {
-    mongodb.MongoClient.connect(mongoDBURI, function (err, client) {
-        if (err) throw err;
-        //get handle to the database
-        var theDatabase = client.db('heroku_0sb1lwt6');
 
-
-        //get collection of Routes
-        var Routes = db.collection('Routes');
-        //get all Routes
-        Routes.find({}).sort({name: 1}).toArray(function (err, docs) {
-            if (err) throw err;
-
-            response.render('pages/mongodb', {results: docs});
-
-        });
-        //close connection when your app is terminating.
-        db.close(function (err) {
-            if (err) throw err;
-        });
-    });//mongoDb closed
-});//router closed
-
+router.get('/getAllOrders', controllerMongoCollection.getAllOrders);
 
 
 //now processing post
