@@ -16,7 +16,7 @@ module.exports.getAllOrders =  function (request, response) {
 
 
         //get handle to the databse
-        var theDatabase = client.db('heroku_1zwzjmrz');
+        var theDatabase = client.db('heroku_0sb1lwt6');
 
 
         //get collection of routes
